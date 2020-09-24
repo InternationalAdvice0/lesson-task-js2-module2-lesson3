@@ -3,12 +3,12 @@ import { listKey } from "../settings/settings.js";
 
 export function createList(array) {
   const resultList = document.querySelector("ul");
-
   resultList.innerHTML = "";
 
   array.forEach((array) => {
     let opacity = "";
     let checked = "";
+
     if (array.completed === true) {
       opacity = "opacity";
       checked = "checked";
@@ -25,7 +25,7 @@ export function createList(array) {
     textBox.addEventListener("keyup", updateValue);
   });
 
-  function updateValue() {
+  function updateValue(event) {
     const id = event.target.dataset.id;
     const value = event.target.value.trim();
     const newArray = updateValueInList(array, id, value);
@@ -38,7 +38,7 @@ export function createList(array) {
     box.addEventListener("click", toggleCheckbox);
   });
 
-  function toggleCheckbox() {
+  function toggleCheckbox(event) {
     const id = event.target.dataset.id;
     const checked = event.target.checked;
     const updatedArray = updateList(array, id, checked);
