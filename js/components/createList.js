@@ -19,7 +19,7 @@ export function createList(array) {
   });
 
   const textBoxes = document.querySelectorAll("li input[type=text]");
-  console.log(textBoxes);
+
   textBoxes.forEach(function (textBox) {
     console.log(textBox);
     textBox.addEventListener("keyup", updateValue);
@@ -31,8 +31,6 @@ export function createList(array) {
     const newArray = updateValueInList(array, id, value);
     saveToStorage(listKey, newArray);
   }
-
-  //
 
   const checkboxes = document.querySelectorAll("input[type=checkbox]");
 
@@ -49,8 +47,6 @@ export function createList(array) {
   }
 }
 
-//
-//
 function updateList(array, id, checked) {
   const findIndex = array.findIndex(function (item) {
     if (item.id === parseInt(id)) {
